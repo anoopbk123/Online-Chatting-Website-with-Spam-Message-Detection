@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+{% extends 'temp/user_home.html' %}
+{% block base %}
+ <center>
+  <form method="post">
+  	<h3 style="color:Green;font-family: cursive;padding-bottom: 20px;">Blocked Friends</h3>
+  	 <table border="1">
+  	 	<tr>
+            <th style="text-align: center;width: 197px;background: #494962;color: white;">PROFILE PHOTO</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">USERNAME</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">COMMENT</th>
+
+{#  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">DATE</th>#}
+{#  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">TIME</th>#}
+
+
+       </tr>
+{#         {% for i in block %}#}
+         {% for i in images %}
+       <tr>
+          <td style="text-align: center;"> <img src="/static/{{i.7}}" width="70cm" height="70cm"></td>
+          <td style="text-align: center;">{{i.1}}</td>
+{#          <td style="text-align: center;">{{i.report.co}}</td>#}
+          <td style="text-align: center;">{{i.12}}</td>
+
+{#          <td style="text-align: center;">{{i.14}}</td>#}
+{#          <td><a style="text-align: center;" href="{% url 'block_user' cdf=i.user_id%}" >BLOCK </a> </td>#}
+
+       </tr>
+         {% endfor%}
+   </table>
+
+</form>
+</center>
+{% endblock %}
+</body>
+</html>

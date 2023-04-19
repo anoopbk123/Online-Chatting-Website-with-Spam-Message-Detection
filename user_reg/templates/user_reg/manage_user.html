@@ -1,0 +1,50 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#	<meta charset="utf-8">#}
+{#	<title></title>#}
+{#</head>#}
+{#<body>#}
+{% extends 'temp/admin_home.html' %}
+{% block base %}
+ <center>
+  <form method="post">
+  <h3 style="color:Green;font-family: cursive;padding-bottom: 20px;">Manage Users</h3>
+  	 
+  	 <table border="1">
+     <tbody style="padding-top:20px;">
+  	 	<tr>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">NO.</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">USERNAME</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">GENDER</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">DOB</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">PHNO</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">EMAIL</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">PHOTO</th>
+            <th style="text-align: center;width: 197px;background: #494962;color: white;"></th>
+            <th style="text-align: center;width: 197px;background: #494962;color: white;"></th>
+         
+       </tr>
+         {% for i in objval %}
+       <tr>
+       	  <td style="text-align: center;">{{ i.user_id }}</td>
+       	  <td style="text-align: center;">{{ i.username }}</td>
+       	  <td style="text-align: center;">{{ i.gender }}</td>
+       	  <td style="text-align: center;">{{ i.dob }}</td>
+       	  <td style="text-align: center;">{{ i.phno }}</td>
+       	  <td style="text-align: center;">{{ i.email }}</td>
+       	  <td style="text-align: center;"><img src="/static/{{ i.profile_photo }}" width="70cm" height="70cm"></td>
+           
+          <td style="text-align: center;"><a href="{% url 'approve_user' abc=i.user_id%}" >Approve </a> </td>
+
+           <td style="text-align: center;"><a href="{% url 'reject_user' cdf=i.user_id%}">Reject</a></td>
+       </tr>
+         {% endfor %}
+     </tbody>
+   </table>
+
+</form>
+</center>
+{% endblock %}
+{#</body>#}
+{#</html>#}

@@ -1,0 +1,42 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#	<meta charset="utf-8">#}
+{#	<title></title>#}
+{#</head>#}
+{#<body>#}
+{% extends 'temp/user_home.html' %}
+{% block base %}
+ <center>
+  <form method="post">
+   <h3 style="color:#Green;font-family: cursive;padding-bottom: 20px;">Friends List</h3>
+
+  	 <table border="1">
+     <tbody style="border:2px solid #3000d6;">
+
+  	 	<tr>
+
+{#  	 		<td>Photo</td>#}
+{#  	 		#}
+{#  	 		<td>User Name</td>#}
+{#         #}
+       </tr>
+         {% for i in friend %}
+       <tr>
+
+           <td><img src="/static/{{ i.f_user.profile_photo }}" width="70cm" height="70cm"></td>
+           <td style="width:49px;background: white;"> {{ i.f_user.username}}</td>
+           <td style="text-align: center;"><a href="">Block</a></td>
+{#           <td><img src="/static/{{ i.1}}" width="70cm" height="70cm"></td>#}
+{#           <td style="width:49px;background: white;"> {{ i.7}}</td>#}
+
+       </tr>
+          {% endfor%}
+     </tbody>
+   </table>
+
+</form>
+</center>
+{% endblock %}
+{#</body>#}
+{#</html>#}

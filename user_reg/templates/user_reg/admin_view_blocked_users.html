@@ -1,0 +1,45 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#	<meta charset="utf-8">#}
+{#	<title></title>#}
+{#</head>#}
+{#<body>#}
+{% extends 'temp/admin_home.html' %}
+{% block base %}
+ <center>
+  <form method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+       <h3 style="color:Green;font-family: cursive;padding-bottom: 20px;">Blocked Users </h3>
+      <table border="1">
+  	 	<tr>
+            <th style="text-align: center;width: 197px;background: #494962;color: white;">PHOTO</th>
+            <th style="text-align: center;width: 197px;background: #494962;color: white;">USER NAME</th>
+            <th style="text-align: center;width: 197px;background: #494962;color: white;"></th>
+{#            <th style="text-align: center;width: 197px;background: #494962;color: white;">COMMENT</th>#}
+{#            <th style="text-align: center;width: 197px;background: #494962;color: white;"></th>#}
+
+
+
+       </tr>
+         {% for i in bl %}
+       <tr>
+          <td style="text-align: center;"><img src="/static/{{i.profile_photo }}" width="70cm" height="70cm"></td>
+{#          <td><img src="view_comments.html">{{ i.user.profile_photo }}</td>>#}
+          <td style="text-align: center;">{{ i.username }}</td>
+{#          <td style="text-align: center;">{{ i.comment }}</td>#}
+          <td style="text-align: center;"><a style="text-align: center;" href="{% url 'unblock' aa=i.user_id%}" >Unblock </a> </td>
+
+
+{#           <td><a href="{% url 'commm' idd=i.comment %}"></a></td>#}
+{#          <td><img src="/static/{{ i.f_user.profile_photo }}" width="50cm" height="50cm"></td>#}
+{#          <td>{{ i.f_user.comment }}</td>#}
+       </tr>
+          {% endfor%}
+   </table>
+
+</form>
+</center>
+{% endblock %}
+{#</body>#}
+{#</html>#}

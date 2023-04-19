@@ -1,0 +1,48 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#	<meta charset="utf-8">#}
+{#	<title></title>#}
+{#</head>#}
+{#<body>#}
+{% extends 'temp/user_home.html' %}
+{% block base %}
+ <center>
+  <form method="post" enctype="multipart/form-data">
+  <h3 style="color:Green;font-family: cursive;padding-bottom: 20px;">Chat With Your Friends</h3>
+  	 
+  	 <table border="1">
+     <tbody style="border:#494962;">
+  	 	<tr>
+{#  	 		<td>NO.</td>#}
+{#            <th style="text-align: center;width: 197px;background: #494962;color: white;">PHOTO</th>#}
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;padding: 12px;">USERNAME</th>
+{#  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">GENDER</th>#}
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">DOB</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">PHNO</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">EMAIL</th>
+
+            <th style="text-align: center;width: 197px;background: #494962;color: white;"></th>
+         
+       </tr>
+         {% for i in chatfriend %}
+       <tr>
+{#       	  <td>{{ i.friend_id }}</td>#}
+{#           <td style="padding-left: 36px;"><img src="/static/{{ i.f_user.profile_photo }}" width="70cm" height="70cm"></td>#}
+       	  <td style="text-align: center;">{{ i.f_user.username }}</td>
+{#          <td style="text-align: center;">{{ i.f_user.gender }}</td>#}
+          <td style="text-align: center;">{{ i.f_user.dob }}</td>
+          <td style="text-align: center;">{{ i.f_user.phno}}</td>
+          <td style="text-align: center;">{{ i.f_user.email}}</td>
+{#          <td style="padding-left: 36px;"><img src="/static/{{ i.f_user.profile_photo }}" width="70cm" height="70cm"></td>#}
+          <td style="text-align: center;width:200px;"><a href="{% url 'chat' abc=i.f_user_id%}">CHAT</a></td>
+       </tr>
+          {% endfor%}
+     </tbody>
+   </table>
+
+</form>
+</center>
+{% endblock %}
+{#</body>#}
+{#</html>#}

@@ -1,0 +1,43 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#	<meta charset="utf-8">#}
+{#	<title></title>#}
+{#</head>#}
+<body>
+{% extends 'temp/admin_home.html' %}
+{% block base %}
+ <center>
+  <form method="post">
+      <h3 style="color:Green;font-family: cursive;padding-bottom: 20px;">Block Users</h3>
+  	 
+  	 <table border="1">
+  	 	<tr>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">NO.</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">USERNAME</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">PHNO</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">EMAIL</th>
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">PHOTO</th>
+            <th style="text-align: center;width: 197px;background: #494962;color: white;"></th>
+
+
+       </tr>
+         {% for i in objval %}
+       <tr>
+       	
+       	 <td style="text-align: center;">{{ i.user_id }}</td>
+          <td style="text-align: center;">{{ i.username }}</td>
+          <td style="text-align: center;">{{ i.phno}}</td>
+          <td style="text-align: center;">{{ i.email}}</td>
+          <td style="text-align: center;"><img src="/static/{{ i.profile_photo }}" width="70cm" height="70cm"></td>
+{#          <td><a  style="text-align: center;" href="{% url 'blkuser' idd=i.user_id %}" >USER BLOCK </a> </td>#}
+           <td style="text-align: center;"><a href="{% url 'blkuser' idd=i.user_id%}">User Block</a></td>
+       </tr>
+          {% endfor%}
+   </table>
+
+</form>
+</center>
+{% endblock %}
+{#</body>#}
+{#</html>#}

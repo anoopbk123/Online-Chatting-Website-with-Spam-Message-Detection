@@ -1,0 +1,38 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#	<meta charset="utf-8">#}
+{#	<title></title>#}
+{#</head>#}
+{#<body>#}
+{% extends 'temp/user_home.html' %}
+{% block base %}
+ <center>
+  <form method="post" style="padding-top:20px;">
+  	 
+  	 <table border="1">
+  	 	<tr>
+  	 		
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">USERNAME</th>
+  	 		
+  	 		<th style="text-align: center;width: 197px;background: #494962;color: white;">PHOTO</th>
+            <th  style="text-align: center;width: 197px;background: #494962;color: white;"></th>
+            <th  style="text-align: center;width: 197px;background: #494962;color: white;"></th>
+         
+       </tr>
+         {% for i in friend %}
+       <tr>
+       	  
+          <td style="text-align: center;">{{ i.user.username }}</td>
+          <td style="text-align: center;"><img src="/static/{{ i.user.profile_photo }}" width="75cm" height="75cm"></td>
+          <td style="text-align: center;"><a href="{% url 'accept_friend' abc=i.friend_id%}">ACCEPT</a></td>
+          <td style="text-align: center;"><a href="{% url 'reject_friend' cdf=i.friend_id%}">REJECT</a></td>
+       </tr>
+          {% endfor%}
+   </table>
+
+</form>
+</center>
+{% endblock %}
+{#</body>#}
+{#</html>#}

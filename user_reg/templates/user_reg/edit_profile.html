@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title></title>
+</head>
+<body>
+{% extends 'temp/user_home.html' %}
+{% block base %}
+   <center>
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h3 style="color:Green;font-family: cursive;padding-bottom: 20px;">Change Photo</h3>
+
+    <table>
+{#      <tr>#}
+{##}
+{#         <td><input type="text-area" name="comment"></td>#}
+{#       </tr>#}
+
+
+
+       <tr>
+         <td align="center"><input style="margin-left:74px;padding-bottom: 10px;" type="file" name="profile" value="Upload"></td>
+       </tr>
+         <tr>
+
+         <td align="center"><input type="submit" name="save" value="Save" style="color: blue;border: 2px solid #09099e; background: transparent;padding: 1px;width: 88px;margin: 20px;"></td>
+       </tr>
+    </table>
+
+</form>
+</center>
+{% endblock %}
+</body>
+</html>

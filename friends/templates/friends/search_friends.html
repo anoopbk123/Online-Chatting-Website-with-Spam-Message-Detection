@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+     <link rel="stylesheet" href="/friends/templates/friends/friend_style.css" />
+</head>
+<body>
+{% extends 'temp/user_home.html' %}
+{% block base %}
+	<center>
+  <form method="post">
+      {% csrf_token %}
+  	 <h3 style="color:Green;font-family: cursive;padding-bottom: 20px;">Search Friends</h3>
+  	 <table>
+  	 	<tr>
+  	 		<td style="padding-right: 12px;">Search :</td>
+  	 		<td style="border:black;"><input type="text" name="search" required=""></td>
+       </tr>
+
+       <tr>
+  	 		<td></td>
+               <td align="center"><input type="submit" name="SEARCH" class="s_btn" style="color: blue;border: 2px solid #09099e; background: transparent;padding: 1px;width: 88px;margin: 20px;" value="Search"></td>
+       </tr>
+  	 </table>
+  	
+</form>
+{% if search %}
+{#     <form method="post" >#}
+        <table border="1">
+  	 	<tr>
+  	 		<td style="text-align: center;width: 197px;background: #494962;color: white;padding: 12px;">NO.</td>
+  	 		<td style="text-align: center;width: 197px;background: #494962;color: white;padding: 12px;">USERNAME</td>
+  	 		<td style="text-align: center;width: 197px;background: #494962;color: white;padding: 12px;">GENDER</td>
+  	 		<td style="text-align: center;width: 197px;background: #494962;color: white;padding: 12px;">DOB</td>
+  	 		<td style="text-align: center;width: 197px;background: #494962;color: white;padding: 12px;">PHNO</td>
+  	 		<td style="text-align: center;width: 197px;background: #494962;color: white;padding: 12px;">EMAIL</td>
+{#  	 		<td>PHOTO</td>#}
+
+       </tr>
+         {% for i in search  %}
+       <tr>
+       	  <td style="text-align: center;">{{ i.user_id }}</td>
+       	  <td style="text-align: center;">{{ i.username}}</td>
+          <td style="text-align: center;">{{ i.gender}}</td>
+          <td style="text-align: center;">{{ i.dob}}</td>
+          <td style="text-align: center;">{{ i.phno}}</td>
+          <td style="text-align: center;">{{ i.email}}</td>
+{#          <td>{{ i.profile_photo}}</td>#}
+{#          <td><a href="{% url 'search_send_request' df=i.user_id%}">SEND REQUEST</a></td>#}
+
+       </tr>
+         {% endfor%}
+   </table>
+     {% if msg %}
+         <script>alert("{{ msg }}")</script>
+         {% endif %}
+{#     </form>#}
+    {% endif %}
+
+</center>
+{% endblock %}
+{#</body>#}
+{#</html>#}

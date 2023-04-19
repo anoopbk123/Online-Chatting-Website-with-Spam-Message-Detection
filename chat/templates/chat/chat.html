@@ -1,0 +1,35 @@
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#   <meta charset="utf-8">#}
+{#   <title></title>#}
+{#</head>#}
+{#<body>#}
+{% extends 'temp/user_home.html' %}
+{% block base %}
+   <center>
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+       <h3 style="color:Green;font-family: cursive;padding-bottom: 20px;">CHAT</h3>
+    
+    <table>
+      <tr>
+         
+         <td><textarea style="margin-left: 33px;width: 200px;height: 87px;" name="message" required></textarea></td>
+       </tr>
+       
+       
+{#       <tr>#}
+{#         <td align="right"><input style="margin-left: 33px;padding-top: 20px;" type="file" name="photo"> </td>#}
+{#       </tr>#}
+       <tr>
+         <td align="center"><input style="margin-top: 20px;height: 40px;width: 123px;margin-left: -30px;border: 2px solid #3000d6;background: transparent;
+    color: #5607f1;" type="submit" name="send" value="SEND"></td>
+       </tr>
+    </table>
+   
+</form>
+</center>
+{#</body>#}
+{#</html>#}
+{% endblock %}
