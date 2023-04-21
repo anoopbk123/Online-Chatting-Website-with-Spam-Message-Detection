@@ -1,5 +1,5 @@
 """
-ASGI config for spam_message project.
+ASGI config for spam_free project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

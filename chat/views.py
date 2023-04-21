@@ -55,7 +55,7 @@ stopwords= set(['br', 'the', 'i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ou
             'won', "won't", 'wouldn', "wouldn't"])
 
 from tqdm import tqdm
-from spam_message import settings
+from spam_free import settings
 from sklearn.feature_extraction.text import TfidfVectorizer
 def chat(request,abc):
     uid = request.session["uid"]
